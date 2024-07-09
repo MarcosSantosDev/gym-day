@@ -4,7 +4,7 @@ import { NativeBaseProvider } from "native-base";
 
 import Loading from "@/components/Loading";
 import { THEME } from "@/theme";
-import SignIn from "@/screens/SignIn";
+import SignUp from "@/screens/SignUp";
 
 export default function App() {
   const [fontsIsLoaded] = useFonts({
@@ -19,7 +19,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsIsLoaded ? <SignIn /> : <Loading />}
+      {fontsIsLoaded ? <SignUp /> : <Loading />}
     </NativeBaseProvider>
   );
 }
