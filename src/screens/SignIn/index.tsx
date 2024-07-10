@@ -1,14 +1,22 @@
 import { Center, Heading, Image, ScrollView, Text, View, VStack } from 'native-base';
+import { useNavigation } from '@react-navigation/native';
 
+import { AuthNavigatorRoutesProps } from '@/routes/auth.routes';
 import LogoSVG from '@/assets/logo.svg';
 import BackgroundImg from '@/assets/background.png';
 import Input from '@/components/Input';
 import Button from '@/components/Button';
 
 const SignIn = () => {
+  const navigation = useNavigation<AuthNavigatorRoutesProps>();
+
+  const navigateToRegisterAccount = () => {
+    navigation.navigate('SignUp');
+  }
+
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
-      <VStack  flex={1} bg="gray.700">
+      <VStack  flex={1}>
         <Image
           source={BackgroundImg}
           defaultSource={BackgroundImg}
@@ -46,7 +54,7 @@ const SignIn = () => {
         <Center flex={1} justifyContent="flex-end" mt={24} px={10}>
           <Text color="gray.100" fontSize="sm" fontFamily="body">Ainda não tem acesso ?</Text>
           <View mb={8} />
-          <Button title="Criar conta" variant="outline" />
+          <Button title="Criar conta" variant="outline" onPress={navigateToRegisterAccount} />
         </Center>
         <View mb={16} />
       </VStack>

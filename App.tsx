@@ -4,14 +4,14 @@ import { NativeBaseProvider } from "native-base";
 
 import Loading from "@/components/Loading";
 import { THEME } from "@/theme";
-import SignUp from "@/screens/SignUp";
+import { Routes } from "@/routes";
 
 export default function App() {
   const [fontsIsLoaded] = useFonts({
     'Roboto_700Bold': Roboto_700Bold,
     'Roboto_400Regular': Roboto_400Regular
   });
-  console.log(fontsIsLoaded);
+
   return (
     <NativeBaseProvider isSSR={false} theme={THEME}>
       <StatusBar
@@ -19,7 +19,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsIsLoaded ? <SignUp /> : <Loading />}
+      {fontsIsLoaded ? <Routes /> : <Loading />}
     </NativeBaseProvider>
   );
 }
